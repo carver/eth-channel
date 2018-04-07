@@ -17,6 +17,10 @@ Read more in the [documentation on ReadTheDocs](http://<RTD_NAME>.readthedocs.io
 
 ```sh
 pip install <PYPI_NAME>
+
+geth --dev
+
+python -m eth_channel.demo_dev
 ```
 
 ## Developer setup
