@@ -9,8 +9,6 @@
 
 Demonstrate an offline payment in Ethereum with a signed message, in Python
 
-* Python 3.5+ support
-
 Read more in the [documentation on ReadTheDocs](http://eth-channel.readthedocs.io/). [View the change log](http://eth-channel.readthedocs.io/en/latest/releases.html).
 
 ## Quickstart
