@@ -1,9 +1,3 @@
-import time
-
-from cytoolz import (
-    assoc,
-)
-
 from eth_channel.contract_info import (
     EIP191_CONTRACT_INFO,
 )

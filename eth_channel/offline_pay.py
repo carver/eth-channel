@@ -1,12 +1,6 @@
-import time
-
-from cytoolz import (
-    assoc,
-)
 from eth_utils import (
     hexstr_if_str,
     keccak,
-    remove_0x_prefix,
     to_bytes,
     to_hex,
 )

@@ -1,10 +1,5 @@
-import time
-
 from eth_utils import (
     to_int,
-)
-from hexbytes import (
-    HexBytes,
 )
 
 from eth_channel.contract_info import (

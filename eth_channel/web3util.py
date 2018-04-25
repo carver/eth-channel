@@ -1,5 +1,3 @@
-import time
-
 from web3 import (
     IPCProvider,
     Web3,
