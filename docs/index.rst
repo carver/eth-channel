@@ -1,7 +1,7 @@
-<PROJECT_NAME>
+Ethereum Payment Channels Demo
 ==============================
 
-<SHORT_DESCRIPTION>
+Demonstrate an offline payment in Ethereum with a signed message, in Python
 
 Contents
 --------
@@ -9,7 +9,7 @@ Contents
 .. toctree::
     :maxdepth: 3
 
-    <MODULE_NAME>
+    eth_channel
     releases
 
 

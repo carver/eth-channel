@@ -38,11 +38,11 @@ setup(
     name='eth_channel',
     # *IMPORTANT*: Don't manually change the version here. Use `make bump`, as described in readme
     version='0.1.0-alpha.0',
-    description="""eth_channel: <SHORT_DESCRIPTION>""",
+    description="""eth_channel: Demonstrate an offline payment in Ethereum with a signed message, in Python""",
     long_description_markdown_filename='README.md',
     author='Jason Carver',
     author_email='ethcalibur+pip@gmail.com',
-    url='https://github.com/ethereum/<REPO_NAME>',
+    url='https://github.com/carver/eth-channel',
     include_package_data=True,
     install_requires=[
         "web3>=4.2.0,<5",
