@@ -37,7 +37,7 @@ extras_require['dev'] = (
 setup(
     name='eth_channel',
     # *IMPORTANT*: Don't manually change the version here. Use `make bump`, as described in readme
-    version='0.1.0-alpha.0',
+    version='0.1.0-alpha.1',
     description="""eth_channel: Demonstrate an offline payment in Ethereum with a signed message, in Python""",
     long_description_markdown_filename='README.md',
     author='Jason Carver',
