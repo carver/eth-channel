@@ -1,4 +1,4 @@
-pragma solidity 0.4.21;
+pragma solidity ^0.4.21;
 
 // NOT FOR PRODUCTION USAGE
 
@@ -16,27 +16,27 @@ contract MicropaymentChannel191 is owned {
     address public recipient;
     uint256 public endOfTheWorldAsWeKnowIt;
     uint256 public chainId;
-    
+
     function MicropaymentChannel191(address _recipient, uint256 _chainId) public {
         recipient = _recipient;
         owner = msg.sender;
         chainId = _chainId;
     }
-    
+
     function deposit() public payable {
         deposited += msg.value;
     }
-    
+
     function scheduleClose() public onlyOwner {
         endOfTheWorldAsWeKnowIt = now + 3 days;
         emit ClosingSoon(endOfTheWorldAsWeKnowIt);
     }
-    
+
     function close() public onlyOwner {
         require(now >= endOfTheWorldAsWeKnowIt);
         selfdestruct(owner);
     }
-    
+
     function isValid(uint256 due, uint8 v, bytes32 r, bytes32 s) public view returns (bool) {
         if (msg.sender != recipient) {
             return false;
@@ -52,7 +52,7 @@ contract MicropaymentChannel191 is owned {
         );
         return owner == ecrecover(msghash, v, r, s);
     }
-    
+
     function settle(uint256 due, uint8 v, bytes32 r, bytes32 s) public {
         require(isValid(due, v, r, s));
         recipient.transfer(due);

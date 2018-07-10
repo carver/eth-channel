@@ -27,10 +27,10 @@ def run_dev_demo(w3, sender, recipient, debt, chain_id):
 
 if __name__ == '__main__':
     w3 = init_web3_dev()
-    new_debt = 2 * 10 ** 16  # wei
+    new_debt = w3.toWei('0.02', 'ether')
     chain_id = DEFAULT_GETH_CHAIN_ID
 
-    # For the love of the flying spaghetti monster, don't use these keys in production:
+    # For the love of the FSM, don't use these keys in production:
     sender_acct = w3.eth.account.privateKeyToAccount(b'\x01' * 32)
     recipient_acct = w3.eth.account.privateKeyToAccount(b'\x02' * 32)
 

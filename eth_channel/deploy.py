@@ -30,7 +30,6 @@ def deploy_channel(w3, sender_acct, recipient_acct, chain_id):
     deploy_txn['nonce'] = w3.eth.getTransactionCount(sender_acct.address)
     deploy_txn['to'] = ''
     deploy_txn['chainId'] = chain_id
-    print(deploy_txn)
 
     signed_txn = sender_acct.signTransaction(deploy_txn)
     deployment_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction)
@@ -38,15 +37,13 @@ def deploy_channel(w3, sender_acct, recipient_acct, chain_id):
     receipt = w3.eth.waitForTransactionReceipt(deployment_hash)
 
     contract_addr = receipt['contractAddress']
-    print('contract deployed at %s' % contract_addr)
+    print('deposit contract deployed at %s' % contract_addr)
 
     return contract_addr
 
 
 def deposit(w3, sender_acct, contract_addr, chain_id):
     channel = w3.eth.contract(contract_addr, **EIP191_CONTRACT_INFO)
-
-    print('chain_id: %s' % channel.functions.chainId().call())
 
     deposit = 10**17
     deposit_txn = channel.functions.deposit().buildTransaction({'value': deposit})
@@ -55,4 +52,4 @@ def deposit(w3, sender_acct, contract_addr, chain_id):
     signed = sender_acct.signTransaction(deposit_txn)
     deposit_hash = w3.eth.sendRawTransaction(signed.rawTransaction)
 
-    print(f'deposited: {deposit}, in transaction {deposit_hash!r}')
+    print(f'deposited: {w3.fromWei(deposit, "ether")} eth, in transaction {deposit_hash!r}')

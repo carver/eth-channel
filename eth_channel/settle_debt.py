@@ -12,10 +12,6 @@ def settle(w3, recipient, channel_addr, chain_id, amount, signature):
 
     v, r, s = to_int(signature[-1]), signature[:32], signature[32:64]
 
-    valid = channel.functions.isValid(amount, v, r, s).call({'from': recipient.address})
-
-    print(f'message is valid {valid}')
-
     txn = channel.functions.settle(amount, v, r, s).buildTransaction({
         'from': recipient.address,
         'chainId': chain_id,
@@ -32,7 +28,9 @@ def settle(w3, recipient, channel_addr, chain_id, amount, signature):
 
     new_balance = w3.eth.getBalance(recipient.address)
 
-    print(f'balance of recipient increased from {old_balance} to {new_balance}')
-
-    print('settlement receipt', repr(receipt))
+    print(
+        f'balance of recipient increased from '
+        f'{w3.fromWei(old_balance, "ether")} to '
+        f'{w3.fromWei(new_balance, "ether")} eth'
+    )
     return receipt

@@ -20,7 +20,7 @@ def promise_payment(w3, sender, recipient, new_debt, channel_addr, chain_id):
 
     valid = channel.functions.isValid(new_debt, v, r, s).call({'from': recipient.address})
 
-    print(f'message is valid? {valid} for {new_debt} wei, signed {to_hex(signed.signature)}')
+    print(f'message is valid? {valid} for {w3.fromWei(new_debt, "ether")} eth, signed {to_hex(signed.signature)}')
 
     return signed.signature
 
